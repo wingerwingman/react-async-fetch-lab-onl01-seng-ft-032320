@@ -7,11 +7,9 @@ export default class App extends Component {
     componentDidMount() {
         fetch('http://api.open-notify.org/astros.json')
         .then(response => response.json())
-        .then(data => {
-            this.ListeningStateChangedEvent({
-                popleInSpace: data.people
+        .then((json) => {
+            this.setState({peopleInSpace: json.people})
             })
-        })
     }
     render() {
         return (
